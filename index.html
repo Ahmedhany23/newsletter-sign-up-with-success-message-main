@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+   
+     
+    </style>
+  </head>
+  <body>
+    <!-- Sign-up Desktop form start -->
+    <div class="Signup">
+      <div class="form">
+        <img
+          src="/assets/images/illustration-sign-up-mobile.svg"
+          class="backgroundM"
+          alt=""
+        />
+        <div class="text">
+          <p class="heading">Stay updated!</p>
+          <p class="description">
+            Join 60,000+ product managers receiving monthly updates on:
+          </p>
+          <ul class="list">
+            <li>
+              <img src="/assets/images/icon-list.svg" alt="" />
+              <p>Product discovery and building what matters</p>
+            </li>
+            <li>
+              <img src="/assets/images/icon-list.svg" alt="" />
+              <p>Measuring to ensure updates are a success</p>
+            </li>
+            <li>
+              <img src="/assets/images/icon-list.svg" alt="" />
+              <p>And much more!</p>
+            </li>
+          </ul>
+
+          <form action="">
+            <div class="email">
+              <label for="email">Email address</label>
+              <p id="invaild" style="color: hsl(4, 100%, 67%)"></p>
+            </div>
+
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="email@company.com"
+              required
+            />
+            <button
+              id="sumbit"
+              class="sumbit"
+              onclick="validateEmail()"
+              type="button"
+            >
+              Subscribe to monthly newsletter
+            </button>
+          </form>
+        </div>
+
+        <img
+          src="/assets/images/illustration-sign-up-desktop.svg"
+          class="background"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <!-- Sign-up Desktop form end -->
+  
+
+
+    <!-- Success message start -->
+
+    <div id="thanks" class="thanks none">
+      <div class="form">
+        <img src="/assets/images/icon-success.svg" alt="" />
+        <p class="heading">Thanks for subscribing!</p>
+        <p class="description">
+          A confirmation email has been sent to
+          <span
+            id="text"
+            style="font-weight: 700; color: hsl(234, 29%, 20%)"
+          ></span
+          >. Please open it and click the button inside to confirm your
+          subscription.
+        </p>
+
+        <button
+          id="sumbitT"
+          class="sumbit"
+          onclick="validateEmail()"
+          type="button"
+        >
+          Dismiss message
+        </button>
+      </div>
+    </div>
+
+    <!-- Success message end -->
+    <script>
+      function validateEmail() {
+       
+        var emailInput = document.getElementById("email");
+        var emailLabel = document.getElementById("invaild");
+        var sumbit = document.getElementById("sumbit");
+        var sumbitT = document.getElementById("sumbitT")
+        var emailText = document.getElementById("text");
+        var thanks = document.getElementById("thanks");
+        var email = emailInput.value;
+
+        // Regular expression for basic email validation
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Check if the entered email is valid
+        if (emailRegex.test(email)) {
+          // Email is valid, remove any existing error class
+          emailInput.classList.remove("error");
+          sumbit.classList.add("success");
+          emailLabel.innerHTML = "";
+          emailText.innerHTML = email;
+          sumbit.addEventListener("click", function () {
+            thanks.classList.add("flex");
+            thanks.classList.remove("none");
+          });
+          sumbitT.addEventListener("click", function () {
+            thanks.classList.add("none");
+            thanks.classList.remove("flex");
+          });
+         
+        } else {
+          // Email is not valid, add error class to input field
+          emailInput.classList.add("error");
+          sumbit.classList.remove("success");
+          emailLabel.innerHTML = "Valid email required";
+          emailText.innerHTML = "";
+          thanks.classList.add("none");
+          thanks.classList.remove("flex");
+        }
+        
+      }
+    </script>
+  </body>
+</html>

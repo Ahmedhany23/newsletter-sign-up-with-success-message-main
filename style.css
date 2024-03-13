@@ -1,0 +1,305 @@
+:root {
+  --Dark: hsl(234, 29%, 20%);
+  --Charcoalgrey: hsl(235, 18%, 26%);
+  --Grey: hsl(231, 7%, 60%);
+  --White: hsl(0, 0%, 100%);
+  --Tomato: hsl(4, 100%, 67%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+}
+li {
+  list-style: none;
+}
+.error {
+  background-color: hsla(4, 100%, 67%, 0.315);
+  color: var(--Tomato); /* Light red background for error */
+}
+.flex {
+  display: flex;
+}
+.none {
+  display: none;
+}
+.success {
+  background: rgb(168, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(168, 58, 180, 1) 0%,
+    rgba(253, 66, 29, 1) 41%
+  );
+}
+/* BackGround Color */
+body {
+  background-color: var(--Charcoalgrey);
+}
+/* Start SignUp */
+.Signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.Signup .form {
+  max-width: 900px;
+  min-height: 650px;
+  background-color: var(--White);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px;
+  border-radius: 15px;
+}
+.text {
+  padding: 20px 10px;
+  margin-top: 40px;
+  margin-left: 10px;
+}
+.heading {
+  color: var(--Dark);
+  font-weight: 700;
+  font-size: 50px;
+}
+.description {
+  color: var(--Charcoalgrey);
+  font-size: 16px;
+  font-weight: 400px;
+  margin-top: 30px;
+}
+.text .list {
+  margin-top: 20px;
+}
+.text .list li {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+.background {
+  width: 100%;
+  min-width: 365px;
+  min-height: 600px;
+}
+.text form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 50px;
+}
+.text form .email {
+  display: flex;
+  gap: 50%;
+  text-align: center;
+  padding: 15px 0;
+}
+.text form .email label {
+  font-size: 13px;
+  font-weight: 700;
+}
+.text form input {
+  width: 90%;
+  height: 50px;
+  border-radius: 7px;
+  border: 1px solid var(--Grey);
+  padding: 20px;
+  font-size: 15px;
+  color: var(--Grey);
+  outline: none;
+}
+.text form input.error {
+  border: 1px solid var(--Tomato);
+  color: var(--Tomato);
+}
+.text form input:focus {
+  color: var(--Charcoalgrey);
+  font-weight: 400;
+}
+form .email p {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.text form .sumbit {
+  width: 90%;
+  height: 50px;
+  border-radius: 7px;
+  border: none;
+  margin-top: 25px;
+  color: var(--White);
+  background-color: var(--Dark);
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+}
+/* End SignUp */
+
+/* Start Success message */
+.thanks {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--Charcoalgrey);
+  z-index: 5;
+}
+.thanks .form {
+  max-width: 400px;
+  min-height: 400px;
+  background-color: var(--White);
+  padding: 40px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.thanks .form img {
+  width: 15%;
+}
+.thanks .form .heading {
+  font-size: 40px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.thanks .form .description {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  padding: 10px;
+  margin-top: 10px;
+}
+.thanks .form .sumbit {
+  width: 100%;
+  height: 50px;
+  border-radius: 7px;
+  border: none;
+  margin-top: 25px;
+  color: var(--White);
+  background-color: var(--Dark);
+  font-weight: 400;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.7s ease-in;
+}
+.thanks .form .sumbit.sumbit:hover {
+  background: rgb(168, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(168, 58, 180, 1) 0%,
+    rgba(253, 66, 29, 1) 41%
+  );
+}
+/* End Success message */
+
+/* Mobile Responsive */
+@media (max-width: 737px) {
+  /* Start M SignUp */
+  .Signup .form {
+    grid-template-columns: 1fr;
+  }
+  .background {
+    display: none;
+  }
+}
+@media (max-width: 630px) {
+  .background {
+    display: none;
+  }
+  body {
+    background-color: var(--White);
+  }
+  .Signup {
+    width: 100%;
+    height: 100%;
+  }
+  .Signup .form {
+    width: 100%;
+    background-color: var(--White);
+    display: block;
+    padding: 0;
+    margin: 0;
+  }
+
+  .Signup .form .backgroundM {
+    width: 100%;
+    max-height: 600px !important;
+    margin: 0;
+  }
+  /* End M  SignUp */
+  /* Start M Success message */
+  .thanks {
+    height: 100vh;
+    background-color: var(--White);
+    justify-content: baseline;
+    align-items: baseline;
+  }
+  .thanks .form {
+    width: 90%;
+    margin-top: 50%; 
+    height: 100vh;
+    min-height: none;
+    background-color: var(--White);
+    padding: 0;
+    border-radius: 0;
+  }
+  .thanks .form img {
+    width: 20%;
+    margin-bottom: 30px;
+  }
+  .thanks .form .sumbit{
+ margin-top: 70%;
+  }
+   /* End M Success message */
+}
+/* to hide The background Mobile in Desktop mode */
+@media (min-width: 630px) {
+  .backgroundM {
+    display: none;
+  }
+}
+
+/* Not Support */
+@media (max-width: 230px) {
+  .Signup {
+    height: 100vh;
+    background-color: var(--Charcoalgrey);
+  }
+  .Signup::after {
+    width: 100%;
+    height: 100vh;
+    content: "The Website not Support This Resolution";
+    writing-mode: vertical-rl;
+    font-size: 50px;
+    text-orientation: mixed;
+    background-image: linear-gradient(to bottom, #ff6b6b, #4361ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-right: 20%;
+  }
+  .Signup .form {
+    display: none;
+  }
+  .thanks {
+    height: 100vh;
+    background-color: var(--Charcoalgrey);
+  }
+  .thanks::after {
+    width: 100%;
+    height: 100vh;
+    content: "The Website not Support This Resolution";
+    writing-mode: vertical-rl;
+    font-size: 50px;
+    text-orientation: mixed;
+    background-image: linear-gradient(to bottom, #ff6b6b, #4361ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-right: 20%;
+  }
+}
